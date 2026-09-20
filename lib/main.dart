@@ -429,7 +429,7 @@ class _BillsScreenState extends State<BillsScreen> {
     title: 'دفع الفواتير',
     children: [
       DropdownButtonFormField<String>(
-        value: biller,
+        initialValue: biller,
         items: ['كهرباء', 'مياه', 'اتصالات', 'إنترنت']
             .map((e) => DropdownMenuItem(value: e, child: Text(e))).toList(),
         onChanged: (v) => setState(() => biller = v!),
