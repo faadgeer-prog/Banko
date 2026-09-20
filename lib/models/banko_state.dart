@@ -13,7 +13,7 @@ class BankoState {
       title: 'الرصيد الافتتاحي',
       subtitle: 'حساب Banko التجريبي',
       amount: 20237,
-      date: const DateTime(2026, 9, 20, 10, 0),
+      date: DateTime(2026, 9, 20, 10, 0),
       type: TransactionType.credit,
     ),
   ];
@@ -47,7 +47,10 @@ class BankoState {
     return true;
   }
 
-  void addMoney(double amount, {String reason = 'إضافة رصيد تجريبي'}) {
+  void addMoney(
+    double amount, {
+    String reason = 'إضافة رصيد تجريبي',
+  }) {
     if (amount <= 0) return;
 
     balance += amount;
@@ -56,8 +59,8 @@ class BankoState {
       0,
       BankoTransaction(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
-        title: reason,
-        subtitle: 'عملية تجريبية',
+        title: 'إضافة رصيد',
+        subtitle: reason,
         amount: amount,
         date: DateTime.now(),
         type: TransactionType.credit,
