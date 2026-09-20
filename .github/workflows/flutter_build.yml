@@ -2,7 +2,8 @@ name: Build Banko APK
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -17,6 +18,9 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+
+      - name: Create Android project
+        run: flutter create --platforms=android .
 
       - name: Install dependencies
         run: flutter pub get
